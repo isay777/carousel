@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel='stylesheet'  href='stylesheet.css' type='text/css' media='screen' />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+  <script src="jquery.PictureCarousel.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function()
+    {
+    $('#karuzela').PictureCarousel();
+    });
+  </script>
+</head>
+
+<body>
+  <div id="karuzela">
+    <a href="#" class="prev"> prev </a>
+    <a href="#" class="next"> next </a>
+    <ul>
+      <li class="red active">"I'm red</li>
+      <li class="purple">I'm purple</li>
+      <li class="blue">I'm blue</li>
+      <li class="green">I'm green</li>
+      <li class="yellow">I'm yellow</li>
+    </ul>
+  </div>
+</body>
+
+</html>
