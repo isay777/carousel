@@ -9,7 +9,7 @@
 }
 
 #karuzela ul {
-  width: 1500px;
+  min-width: 1500px;
 }
 
 #karuzela ul li { 

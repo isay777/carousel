@@ -17,22 +17,37 @@
       var next = $this.find("a.next");
       
       previous.click(left);
-      // next.click(right);
+      next.click(right);
 
       function left() {
-        if(activeElements.prev().length === 0) {
-          $(".elementy").append(activeElements); //can I do that?
-        }
+        var $last = $this.find("ul li:last-child");
+        var $first = $this.find("ul li:first-child");
 
+        $first.before($last); //can I do that? 
 
         activeElements.prev().addClass("active");
         activeElements.removeClass("active");
+        
 
         activeElements = $this.find("li.active");
+        
+
+      };
+
+      function right() {
+        var $last = $this.find("ul li:last-child");
+        var $first = $this.find("ul li:first-child");
+
+        $last.after($first); //can I do that? 
+
+        activeElements.next().addClass("active");
+        activeElements.removeClass("active");
+        
+
+        activeElements = $this.find("li.active");
+        
 
       };
     });
   };
 })(jQuery);
-
-//this. = $($(this).attr('.active'));
