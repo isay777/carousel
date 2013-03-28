@@ -1,38 +1,43 @@
 (function($) {
   $.fn.PictureCarousel = function() {
-    var $this = $(this);
+    var item_width = $('.slides li').outerWidth();
+    var left_value = item_width * (-1);
 
-    var activeElements = $this.find("li.active");
+    return $(this).each(function() {
 
-    if(activeElements.length == 0) {
-      throw new Error("There's no active element in the carousel, please set active class to one <li> tag");
-    } else if(activeElements.length > 1) {
-      throw new Error("There's is more than one active element in the carousel, please remove active class from a <li> tag");
-    }
+      $('.prev').click(move_left);
+      $('.next').click(move_right);
 
-    
+      /* Put the last element before the first one, so there's something to
+      click 'prev' to, and move to the left to still show the first element */
+      $('.slides li:first').before($('.slides li:last'));
+      $('.slides').css({'left' : left_value});
 
-    return $this.each(function() {
-      var previous = $this.find("a.prev");
-      var next = $this.find("a.next");
-      
-      previous.click(left);
-      // next.click(right);
+      function move_left() {
+        // get target position
+        var left_indent = parseInt($('.slides').css('left')) + item_width;
 
-      function left() {
-        if(activeElements.prev().length === 0) {
-          $(".elementy").append(activeElements); //can I do that?
-        }
+        $('.slides').animate({left : left_indent}, 200, function() {
+          $('.slides li:first').before($('.slides li:last')); /* move last
+          element to the beginning of the list */
+          $('.slides').css({'left': left_value}); // move list left
+        });
 
-
-        activeElements.prev().addClass("active");
-        activeElements.removeClass("active");
-
-        activeElements = $this.find("li.active");
-
+        return false; // prevent default action
       };
+
+      function move_right() {
+        // get target position
+        var left_indent = parseInt($('.slides').css('left')) - item_width;
+
+        $('.slides').animate({left : left_indent}, 200, function() {
+          // move first element to the end of the list
+          $('.slides li:last').after($('.slides li:first'));
+          $('.slides').css({'left': left_value}); // move list right
+        });
+        return false; // prevent default action
+      };
+
     });
   };
 })(jQuery);
-
-//this. = $($(this).attr('.active'));

@@ -5,24 +5,26 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
   <script src="jquery.PictureCarousel.js"></script>
   <script type="text/javascript">
-    $(document).ready(function()
-    {
-    $('#karuzela').PictureCarousel();
+    $(document).ready(function() {
+      $('#carousel').PictureCarousel();
     });
   </script>
 </head>
 
 <body>
-  <div id="karuzela">
-    <a href="#" class="prev"> prev </a>
-    <a href="#" class="next"> next </a>
-    <ul class="elementy">
-      <li class="red active">"I'm red</li>
-      <li class="purple">I'm purple</li>
-      <li class="blue">I'm blue</li>
-      <li class="green">I'm green</li>
-      <li class="yellow">I'm yellow</li>
+  <div id="carousel">
+    <ul class="slides">
+      <li class="red"></li>
+      <li class="purple"></li>
+      <li class="blue"></li>
+      <li class="green"></li>
+      <li class="yellow"></li>
     </ul>
+    <div class="clear"></div>
+  </div>
+  <div class="controls">
+    <a href="" data-target="#" class="prev">prev</a>
+    <a href="" data-target="#" class="next">next</a>
   </div>
 </body>
 

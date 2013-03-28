@@ -1,22 +1,38 @@
-#karuzela, #karuzela ul li {
+#carousel {
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#carousel ul {
+  width: 1500px;
+  position: relative;
+  left: 0;
+  top: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#carousel ul li, #carousel {
   width: 300px;
   height: 200px;
 }
 
-#karuzela {
-  position: relative;
-  overflow: hidden;
-}
-
-#karuzela ul {
-  width: 1500px;
-}
-
-#karuzela ul li { 
-  text-align: center;
+#carousel ul li {
   list-style-type: none;
   float: left;
 }
+
+.clear {
+  clear: both;
+}
+
+.controls {
+  width: 100px;
+  margin: 30px auto;
+}
+
+.controls a { padding: 10px; }
 
 .red {
   background-color: red;
